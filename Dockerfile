@@ -38,7 +38,7 @@ RUN wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar
 	rm logstash-1.4.2.tar.gz && \
 	mv logstash-1.4.2 logstash && \
 	touch logstash.conf && \
-	echo 'input { tcp { port => 3333 type => "text event"} tcp { port => 3334 type => "json event" codec => json_lines {} } }' >> logstash.conf && \
+	echo 'input { tcp { port => 3333 type => "text event"} tcp { port => 3334 type => "json event" codec => json_lines {} } collectd{} }' >> logstash.conf && \
 	echo 'output { elasticsearch { host => localhost } }' >> logstash.conf 
 
 # Kibana installation
